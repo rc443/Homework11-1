@@ -81,7 +81,9 @@ switch( $action ) {
 		break;
 	}
 
-    //case 'Sort Tasks':
+    case 'Sort Tasks':
+    	sort($task_list);
+	break;
     
 
 }
