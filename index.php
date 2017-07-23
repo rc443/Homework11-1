@@ -62,12 +62,28 @@ switch( $action ) {
     case 'Cancel Changes':
 	$modified_task = '';
 	break;
-/*
+
     case 'Promote Task':
-        
-    case 'Sort Tasks':
+	$task_index = filter_input(INPUT_POST, 'taskid', FILTER_VALIDATE_INT);
+	If ($task_index === NULL || $task_index === FALSE) {
+		$errors[] = 'The task cannot be promoted.';
+	} elseif ($task_index == 0) {
+		$errors[] = 'You can't promote the first task.';
+	} else {
+
+		//get the values forthe two indexes
+		$task_value = $task_list[$task_index];
+		$prior_task_value = $task_list[$task_index-1];
+
+		//swap the values
+		$task_list[$task_index-1] = $task_value;
+		$task_list[$task_index} = $prior_task_value;
+		break;
+	}
+
+    //case 'Sort Tasks':
     
-*/
+
 }
 
 include('task_list.php');
